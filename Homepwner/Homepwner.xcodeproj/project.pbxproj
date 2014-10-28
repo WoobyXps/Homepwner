@@ -13,6 +13,7 @@
 		0D32929119F94B2C0020B2E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D32928F19F94B2C0020B2E5 /* Main.storyboard */; };
 		0D32929319F94B2C0020B2E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D32929219F94B2C0020B2E5 /* Images.xcassets */; };
 		0D32929F19F94B2D0020B2E5 /* HomepwnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D32929E19F94B2D0020B2E5 /* HomepwnerTests.m */; };
+		0D764EE019F9504C00C33A61 /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D764EDF19F9504C00C33A61 /* ItemsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		0D32929819F94B2D0020B2E5 /* HomepwnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomepwnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D32929D19F94B2D0020B2E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D32929E19F94B2D0020B2E5 /* HomepwnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomepwnerTests.m; sourceTree = "<group>"; };
+		0D764EDE19F9504C00C33A61 /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
+		0D764EDF19F9504C00C33A61 /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,8 @@
 			children = (
 				0D32928919F94B2C0020B2E5 /* AppDelegate.h */,
 				0D32928A19F94B2C0020B2E5 /* AppDelegate.m */,
+				0D764EDE19F9504C00C33A61 /* ItemsViewController.h */,
+				0D764EDF19F9504C00C33A61 /* ItemsViewController.m */,
 				0D32928C19F94B2C0020B2E5 /* ViewController.h */,
 				0D32928D19F94B2C0020B2E5 /* ViewController.m */,
 				0D32928F19F94B2C0020B2E5 /* Main.storyboard */,
@@ -216,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D32928E19F94B2C0020B2E5 /* ViewController.m in Sources */,
+				0D764EE019F9504C00C33A61 /* ItemsViewController.m in Sources */,
 				0D32928B19F94B2C0020B2E5 /* AppDelegate.m in Sources */,
 				0D32928819F94B2C0020B2E5 /* main.m in Sources */,
 			);
@@ -335,6 +341,7 @@
 				INFOPLIST_FILE = Homepwner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -346,6 +353,7 @@
 				INFOPLIST_FILE = Homepwner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -402,6 +410,7 @@
 				0D3292A419F94B2D0020B2E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D3292A519F94B2D0020B2E5 /* Build configuration list for PBXNativeTarget "HomepwnerTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +419,7 @@
 				0D3292A719F94B2D0020B2E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

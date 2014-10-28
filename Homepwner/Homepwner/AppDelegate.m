@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ItemsViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +17,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    ItemsViewController *itemsViewController = [[ItemsViewController alloc]init];
+    [[self window]setRootViewController:itemsViewController];
     return YES;
 }
 
