@@ -2,7 +2,7 @@
 //  ItemsViewController.m
 //  Homepwner
 //
-//  Created by Malkavia on 10/23/14.
+//  Created by Malkavia on 10/28/14.
 //  Copyright (c) 2014 Malkavia. All rights reserved.
 //
 
@@ -17,15 +17,15 @@
 -(id)init{
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        
+       
     }
     return self;
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(50, 50, 200, 200)];
-    button.backgroundColor = [UIColor redColor];
+    for (int i=0; i<10; i++) {
+        [[BNRItemStore sharedStore] createItem];
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -41,27 +41,34 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    // Return4the number of rows in the section.
+    return [[[BNRItemStore sharedStore] getAllItems]count]+1;
 }
 
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+    }
+    NSLog(@"%d",[indexPath row]);
+    NSLog(@"%d",[[[BNRItemStore sharedStore] getAllItems]count]);
     
-    // Configure the cell...
+    if ([indexPath row] < [[[BNRItemStore sharedStore] getAllItems]count]) {
+        BNRItem *p = [[[BNRItemStore sharedStore] allItems]objectAtIndex:[indexPath row]];
+        [[cell textLabel] setText:[p description]];
+    }else{
+        [[cell textLabel]setText:@"No More"];
+    }
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
