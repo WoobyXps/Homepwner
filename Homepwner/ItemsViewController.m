@@ -47,7 +47,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return4the number of rows in the section.
-    return [[[BNRItemStore sharedStore] getAllItems]count]+1;
+    return [[[BNRItemStore sharedStore] getAllItems]count];
 }
 
 
@@ -56,15 +56,9 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
-    NSLog(@"%d",[indexPath row]);
-    NSLog(@"%d",[[[BNRItemStore sharedStore] getAllItems]count]);
-    
-    if ([indexPath row] < [[[BNRItemStore sharedStore] getAllItems]count]) {
         BNRItem *p = [[[BNRItemStore sharedStore] allItems]objectAtIndex:[indexPath row]];
         [[cell textLabel] setText:[p description]];
-    }else{
-        [[cell textLabel]setText:@"No More"];
-    }
+    
     
     return cell;
 }
@@ -113,5 +107,29 @@
     // Pass the selected object to the new view controller.
 }
 */
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    return self.headerView;
+//}
+//-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section{
+//    return self.headerView.bounds.size.height;
+//}
 
+- (IBAction)addNewItem:(id)sender {
+//    int lastRow = [[self tableView]numberOfRowsInSection:0];
+    BNRItem *item = [[BNRItemStore sharedStore]createItem];
+    int lastRow = [[[BNRItemStore sharedStore]allItems]indexOfObject:item];
+    NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip] withRowAnimation:UITableViewRowAnimationTop];
+}
+
+- (IBAction)toggleEditingMode:(id)sender {
+    if ([self isEditing]) {
+        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+        [self setEditing:NO animated:YES];
+    }else{
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
+        [self setEditing:YES animated:YES];
+    }
+
+}
 @end

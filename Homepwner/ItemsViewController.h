@@ -10,5 +10,8 @@
 #import "BNRItem.h"
 #import "BNRItemStore.h"
 @interface ItemsViewController : UITableViewController
+@property (strong, nonatomic) IBOutlet UIView *headerView;
+- (IBAction)addNewItem:(id)sender;
+- (IBAction)toggleEditingMode:(id)sender;
 
 @end
